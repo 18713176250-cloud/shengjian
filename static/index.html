@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="声见——面向听障用户的视频无障碍制作平台。">
+  <title>声见 · 让视频更容易被看见</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="声见首页">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span>声见</span>
+    </a>
+    <span class="phase-badge"><span class="status-dot"></span>第一阶段 · 本地处理</span>
+  </header>
+
+  <main class="home-main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">VIDEO ACCESSIBILITY, FOR EVERYONE</p>
+        <h1 id="hero-title">让每一种声音，<br><span>都有被看见的方式。</span></h1>
+        <p class="hero-description">面向听障用户的视频无障碍制作平台。现在，从一段视频和它的声音开始。</p>
+        <div class="local-note">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.6 2.9 8.4 7 10 4.1-1.6 7-5.4 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>文件仅保存在本机，不调用云服务</span>
+        </div>
+      </div>
+
+      <section class="upload-card" aria-labelledby="upload-title">
+        <div class="card-heading">
+          <span class="step-number">01</span>
+          <div><h2 id="upload-title">上传视频</h2><p>创建一个新的本地项目</p></div>
+        </div>
+        <form id="upload-form">
+          <label class="drop-zone" id="drop-zone" for="video-file">
+            <input id="video-file" name="file" type="file" accept=".mp4,video/mp4" required>
+            <span class="upload-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5 5 5"/><path d="M5 14v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4"/></svg>
+            </span>
+            <strong id="drop-title">拖放 MP4 视频到这里</strong>
+            <span class="drop-or">或 <u>浏览本地文件</u></span>
+            <span class="file-limits">MP4 格式 · 最大 100 MB · 最长 3 分钟 · 需含音轨</span>
+          </label>
+          <div class="selected-file hidden" id="selected-file">
+            <span class="file-type">MP4</span>
+            <div><strong id="selected-name"></strong><span id="selected-size"></span></div>
+            <button type="button" class="icon-button" id="clear-file" aria-label="移除已选文件">×</button>
+          </div>
+          <div class="upload-progress hidden" id="upload-progress" aria-live="polite">
+            <div><span id="upload-progress-label">正在上传并校验…</span><span id="upload-percent">0%</span></div>
+            <progress id="upload-progress-bar" max="100" value="0">0%</progress>
+          </div>
+          <p class="message error-message hidden" id="upload-error" role="alert"></p>
+          <button class="primary-button full-width" id="upload-button" type="submit" disabled>
+            <span>开始上传</span><span aria-hidden="true">→</span>
+          </button>
+        </form>
+      </section>
+    </section>
+
+    <section class="history-section" aria-labelledby="history-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">YOUR WORKSPACE</p><h2 id="history-title">历史项目</h2></div>
+        <span class="project-count" id="project-count">正在读取…</span>
+      </div>
+      <div class="message error-message hidden" id="history-error" role="alert"></div>
+      <div class="empty-state" id="history-empty">
+        <span class="empty-icon" aria-hidden="true">▱</span>
+        <h3>还没有视频项目</h3>
+        <p>上传第一段视频，项目会保存在这里。</p>
+      </div>
+      <div class="project-grid" id="project-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>声见 · 让无障碍制作更简单</span><span>本地媒体处理 / SQLite 持久化</span></footer>
+</body>
+</html>
